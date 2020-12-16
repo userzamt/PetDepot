@@ -11,11 +11,15 @@ const webstore = new Vue({
             image: "assets/images/product-fullsize.png"
         },
         cart: [],
-        availableInventory: 3
+        availableInventory: 3,
+        showProduct: true
     },
     methods: {
         addToCart: function () {
             this.cart.push( this.product.id );
+        },
+        showCheckout() {
+            this.showProduct = this.showProduct ? false : true;
         }
     },
     computed: {
