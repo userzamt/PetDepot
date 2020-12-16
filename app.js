@@ -9,6 +9,21 @@ const webstore = new Vue({
             description: "A 25 pound bag of <em>irresistible</em>, organic goodness for your cat.",
             price: 2000,
             image: "assets/images/product-fullsize.png"
+        },
+        cart: [],
+        availableInventory: 3
+    },
+    methods: {
+        addToCart: function () {
+            this.cart.push( this.product.id );
+        }
+    },
+    computed: {
+        cartItemCount: function () {
+            return this.cart.length || "";
+        },
+        canAddToCart: function () {
+            return this.availableInventory > this.cartItemCount;
         }
     },
     filters: {
