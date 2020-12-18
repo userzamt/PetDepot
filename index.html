@@ -79,9 +79,9 @@
                                 <label for="state">State</label>
                                 <select id="state" class="form-control form-control-lg" v-model="order.state">
                                     <option selected disabled>State</option>
-                                    <option>50 Moscow Oblast</option>
-                                    <option>52 Nizhny Novgorod Oblast</option>
-                                    <option>79 Jewish Autonomous Oblast</option>
+                                    <option v-for="(state, key) in states" v-bind:value="state.key + ' ' + state.value">
+                                        {{ state.value }}
+                                    </option>
                                 </select>
                             </div>
 
@@ -95,18 +95,18 @@
                         <div class="form-row">
                             <div class="form-group col-6">
                                 <div class="form-check form-check-inline">
-                                    <input type="checkbox" id="gift" class="form-check-input form-control-lg" v-model="order.gift">
+                                    <input type="checkbox" id="gift" class="form-check-input form-control-lg" v-model="order.gift" v-bind:true-value="order.sendGift" v-bind:false-value="order.dontSendGift">
                                     <label for="gift" class="form-check-label form-control-lg">Ship as Gift</label>
                                 </div>
                             </div>
 
                             <div class="form-group col-6">
                                 <div class="form-check form-check-inline col-6">
-                                    <input type="radio" id="home" class="form-check-input form-control-lg" value="Home" v-model="order.method">
+                                    <input type="radio" id="home" class="form-check-input form-control-lg" v-model="order.method" v-bind:value="order.home">
                                     <label for="home" class="form-check-label form-control-lg">Home</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" id="business" class="form-check-input form-control-lg" value="Business" v-model="order.method">
+                                    <input type="radio" id="business" class="form-check-input form-control-lg" v-model="order.method" v-bind:value="order.business">
                                     <label for="business" class="form-check-label form-control-lg">Business</label>
                                 </div>
                             </div>

@@ -13,6 +13,11 @@ const webstore = new Vue({
         cart: [],
         availableInventory: 3,
         showProduct: false,
+        states: [
+            {key: 50, value: "Moscow Oblast"},
+            {key: 52, value: "Nizhny Novgorod Oblast"},
+            {key: 79, value: "Jewish Autonomous Oblast"}
+        ],
         order: {
             firstName: "",
             lastName: "",
@@ -20,8 +25,12 @@ const webstore = new Vue({
             city: "",
             zip: "",
             state: "",
-            method: "Home",
-            gift: false
+            method: "Home address",
+            home: "Home address",
+            business: "Business address",
+            gift: "Ship as Gift",
+            sendGift: "Ship as Gift",
+            dontSendGift: "Do NOT send ship as Gift"
         },
     },
     methods: {
