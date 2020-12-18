@@ -12,7 +12,17 @@ const webstore = new Vue({
         },
         cart: [],
         availableInventory: 3,
-        showProduct: true
+        showProduct: false,
+        order: {
+            firstName: "",
+            lastName: "",
+            address: "",
+            city: "",
+            zip: "",
+            state: "",
+            method: "Home",
+            gift: false
+        },
     },
     methods: {
         addToCart: function () {
@@ -20,6 +30,9 @@ const webstore = new Vue({
         },
         showCheckout() {
             this.showProduct = this.showProduct ? false : true;
+        },
+        submitForm() {
+            console.log( this.order );
         }
     },
     computed: {

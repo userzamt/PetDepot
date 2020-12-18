@@ -50,7 +50,85 @@
             </div>
             <div v-else class="row  justify-content-center align-items-center">
                 <!-- ELSE -->
-                <p class="display-2">hello, world</p>
+                <form class="col-8 mt-3" action="">
+                    <fieldset>
+                        <legend class="">Enter Your information</legend>
+                        <div class="form-row mt-3">
+                            <div class="form-group col-6">
+                                <label for="firstName">First name</label>
+                                <input id="firstName" class="form-control form-control-lg" type="text" placeholder="Ivanov" v-model="order.firstName">
+                            </div>
+
+                            <div class="form-group col-6">
+                                <label for="lastName">Last name</label>
+                                <input id="lastName" class="form-control form-control-lg" type="text" placeholder="Ivan" v-model="order.lastName">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control form-control-lg" placeholder="Gorodec" v-model="order.city">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Addres</label>
+                            <input type="text" id="address" class="form-control form-control-lg" placeholder="Lenina st., 12" v-model="order.address">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="state">State</label>
+                                <select id="state" class="form-control form-control-lg" v-model="order.state">
+                                    <option selected disabled>State</option>
+                                    <option>50 Moscow Oblast</option>
+                                    <option>52 Nizhny Novgorod Oblast</option>
+                                    <option>79 Jewish Autonomous Oblast</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <label for="zip">ZIP/Postal code</label>
+                                <input id="zip" type="text" class="form-control form-control-lg" v-model="order.zip">
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" id="gift" class="form-check-input form-control-lg" v-model="order.gift">
+                                    <label for="gift" class="form-check-label form-control-lg">Ship as Gift</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-6">
+                                <div class="form-check form-check-inline col-6">
+                                    <input type="radio" id="home" class="form-check-input form-control-lg" value="Home" v-model="order.method">
+                                    <label for="home" class="form-check-label form-control-lg">Home</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" id="business" class="form-check-input form-control-lg" value="Business" v-model="order.method">
+                                    <label for="business" class="form-check-label form-control-lg">Business</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-lg btn-block" v-on:click="submitForm">Place order</button>
+                    </fieldset>
+                </form>
+
+                <div class="col-8 mt-3">
+                    <pre>
+                        First name: {{ order.firstName }}
+                         Last name: {{ order.lastName }}
+                              City: {{ order.city }}
+                           Address: {{ order.address }}
+                             State: {{ order.state }}
+                               ZIP: {{ order.zip }}
+                            Method: {{ order.method }}
+                              Gift: {{ order.gift }}
+                    </pre>
+                </div>
+
             </div>
             
 
