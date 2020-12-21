@@ -8,10 +8,10 @@ const webstore = new Vue({
             title: "Cat Food, 25lb bag",
             description: "A 25 pound bag of <em>irresistible</em>, organic goodness for your cat.",
             price: 2000,
-            image: "assets/images/product-fullsize.png"
+            image: "assets/images/product-fullsize.png",
+            availableInventory: 10,
         },
-        cart: [],
-        availableInventory: 3,
+        cart: [],        
         showProduct: false,
         states: [
             {key: 50, value: "Moscow Oblast"},
@@ -49,7 +49,7 @@ const webstore = new Vue({
             return this.cart.length || "";
         },
         canAddToCart: function () {
-            return this.availableInventory > this.cartItemCount;
+            return this.product.availableInventory > this.cartItemCount;
         }
     },
     filters: {
