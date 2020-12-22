@@ -10,9 +10,10 @@ const webstore = new Vue({
             price: 2000,
             image: "assets/images/product-fullsize.png",
             availableInventory: 10,
+            rating: 4,
         },
         cart: [],        
-        showProduct: false,
+        showProduct: true,
         states: [
             {key: 50, value: "Moscow Oblast"},
             {key: 52, value: "Nizhny Novgorod Oblast"},
@@ -42,6 +43,9 @@ const webstore = new Vue({
         },
         submitForm() {
             console.log( this.order );
+        },
+        checkRating(n) {
+            return this.product.rating - n >= 0;
         }
     },
     computed: {
